@@ -1,15 +1,20 @@
 :root {
   --primary: #0a1931;
   --primary-light: #15294e;
-  --secondary: #0077b6;
+  --primary-dark: #060e1d;
+  --secondary: #0284c7;
+  --secondary-dark: #0369a1;
   --accent-gold: #c5a059;
-  --accent-gold-light: #e5c583;
+  --accent-gold-light: #e6c889;
+  --accent-gold-dark: #9e7a32;
   --dark: #070d19;
   --light-bg: #f8fafc;
   --card-bg: #ffffff;
-  --text-main: #1e293b;
+  --text-main: #0f172a;
   --text-muted: #64748b;
   --border-color: #e2e8f0;
+  --rcs-blue: #1a73e8;
+  --rcs-green: #10b981;
   --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 }
@@ -35,21 +40,29 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
 }
 
-/* Navbar */
+/* ========================================================
+   NAVBAR (Bulletproof Single-Line Alignment)
+   ======================================================== */
 .navbar-custom {
   background: #ffffff;
   border-bottom: 1px solid var(--border-color);
-  padding: 0.85rem 0;
+  padding: 0.65rem 0;
   position: sticky;
   top: 0;
   z-index: 1030;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-brand {
+  padding: 0;
+  margin-right: 1.5rem;
 }
 
 .navbar-brand img {
-  height: 52px;
+  height: 48px;
   width: auto;
   object-fit: contain;
+  border-radius: 6px;
   transition: transform 0.2s ease;
 }
 
@@ -57,33 +70,17 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.02);
 }
 
-.brand-title {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  color: var(--primary);
-  font-size: 1.35rem;
-  letter-spacing: 0.5px;
-}
-
-.brand-tagline {
-  font-size: 0.68rem;
-  color: var(--accent-gold);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  font-weight: 600;
-  display: block;
-  margin-top: -3px;
-}
-
-.nav-link {
+.navbar-nav .nav-link {
   font-weight: 600;
   color: #334155 !important;
-  font-size: 0.95rem;
-  padding: 0.6rem 1rem !important;
+  font-size: 0.92rem;
+  padding: 0.5rem 0.85rem !important;
+  white-space: nowrap; /* PREVENT MULTI-LINE WORD WRAPPING */
   transition: color 0.2s ease;
 }
 
-.nav-link:hover, .nav-link.active {
+.navbar-nav .nav-link:hover, 
+.navbar-nav .nav-link.active {
   color: var(--secondary) !important;
 }
 
@@ -91,13 +88,14 @@ h1, h2, h3, h4, h5, h6 {
   background: #f1f5f9;
   color: var(--primary) !important;
   font-weight: 600;
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
+  font-size: 0.88rem;
+  padding: 0.45rem 0.9rem;
   border-radius: 50px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   text-decoration: none;
+  white-space: nowrap;
   transition: all 0.2s ease;
   border: 1px solid #e2e8f0;
 }
@@ -105,6 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-phone:hover {
   background: #e2e8f0;
   color: var(--secondary) !important;
+  border-color: #cbd5e1;
 }
 
 .btn-gold {
@@ -115,12 +114,17 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 8px;
   padding: 0.65rem 1.4rem;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.25);
+  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.3);
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.45);
   color: #ffffff !important;
 }
 
@@ -129,20 +133,28 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff !important;
   font-weight: 600;
   border-radius: 8px;
-  padding: 0.65rem 1.4rem;
+  padding: 0.55rem 1.25rem;
   transition: all 0.25s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-navy:hover {
   background: var(--primary-light);
   transform: translateY(-2px);
+  color: #ffffff !important;
 }
 
-/* Hero Section */
+/* ========================================================
+   HERO SECTION & BALANCED TELECOM DASHBOARD
+   ======================================================== */
 .hero-section {
   background: radial-gradient(circle at 80% 20%, #15294e 0%, #070d19 100%);
   color: #ffffff;
-  padding: 5rem 0 4.5rem;
+  padding: 4.5rem 0 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -155,65 +167,173 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none;
 }
 
-.hero-pill {
+.hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: var(--accent-gold-light);
   padding: 0.35rem 1rem;
   border-radius: 50px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   margin-bottom: 1.25rem;
 }
 
 .hero-title {
-  font-size: 3.25rem;
+  font-size: 2.85rem;
   font-weight: 800;
   color: #ffffff;
   letter-spacing: -0.5px;
+  line-height: 1.2;
 }
 
-.hero-title span {
-  color: #38bdf8;
-  display: block;
+.hero-title .gradient-text {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-desc {
-  font-size: 1.15rem;
+  font-size: 1.08rem;
   color: #cbd5e1;
   max-width: 580px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.85rem;
+  line-height: 1.6;
+}
+
+/* Right-Column Balanced Telecom Dashboard Card */
+.hero-dashboard-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-banner-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .hero-banner-img {
   width: 100%;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
-.hero-banner-img:hover {
-  transform: translateY(-4px);
+.hero-banner-overlay-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(10, 25, 49, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-/* Features Grid */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.hero-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 12px 8px;
+  text-align: center;
+}
+
+.telemetry-item {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.telemetry-item:last-child {
+  border-right: none;
+}
+
+.telemetry-val {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.telemetry-lbl {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hero-route-ticker {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.75rem;
+}
+
+.ticker-pill {
+  background: rgba(56, 189, 248, 0.12);
+  color: #e2e8f0;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* ========================================================
+   4 PILLARS STRIP
+   ======================================================== */
 .features-strip {
   background: #0f1b2f;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 3rem 0;
+  padding: 2.75rem 0;
 }
 
 .feature-box {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 1.75rem 1.25rem;
+  border-radius: 14px;
+  padding: 1.5rem 1.25rem;
   transition: all 0.25s ease;
   height: 100%;
 }
@@ -225,10 +345,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-icon-wrap {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  background: rgba(56, 189, 248, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(56, 189, 248, 0.12);
   color: #38bdf8;
   display: flex;
   align-items: center;
@@ -238,14 +358,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-box h4 {
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   color: #ffffff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .feature-box p {
   color: #94a3b8;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   margin-bottom: 0;
 }
 
@@ -256,11 +376,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-tag {
   color: var(--secondary);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  display: block;
+  display: inline-block;
   margin-bottom: 0.5rem;
 }
 
@@ -268,57 +388,395 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2.25rem;
   font-weight: 800;
   margin-bottom: 1rem;
+  color: var(--primary);
 }
 
 .lead-text {
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   color: var(--text-muted);
+}
+
+/* ========================================================
+   RCS INTERACTIVE SMARTPHONE SIMULATOR (PERFECT ALIGNMENT)
+   ======================================================== */
+.rcs-simulator-wrapper {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 3rem 2.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.rcs-tab-btn {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.rcs-tab-btn:hover {
+  background: #f1f5f9;
+  color: var(--secondary);
+}
+
+.rcs-tab-btn.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(10, 25, 49, 0.2);
+}
+
+/* Realistic Smartphone Bezel - FIXED CONSTRAINT */
+.rcs-phone-bezel {
+  width: 340px;
+  max-width: 100%;
+  height: 590px;
+  margin: 0 auto;
+  background: #0f172a;
+  border-radius: 42px;
+  padding: 12px;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.4),
+              0 0 0 2px #334155 inset;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.rcs-phone-screen {
+  background: #f8fafc;
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* FIXED: WAS flex-column */
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* Phone Status Bar */
+.rcs-status-bar {
+  background: #ffffff;
+  padding: 8px 16px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #1e293b;
+  border-bottom: 1px solid #f1f5f9;
+  flex-shrink: 0;
+}
+
+.rcs-notch {
+  width: 75px;
+  height: 14px;
+  background: #0f172a;
+  border-radius: 10px;
+}
+
+/* App Header */
+.rcs-app-header {
+  background: #ffffff;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.rcs-app-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #e2e8f0;
+}
+
+.rcs-brand-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1.2;
+}
+
+.rcs-verified-badge {
+  color: #10b981;
+  font-size: 0.85rem;
+}
+
+.rcs-brand-status {
+  font-size: 0.68rem;
+  color: #64748b;
+  display: block;
+}
+
+/* Chat Body with Scroll */
+.rcs-chat-body {
+  padding: 12px 10px;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f1f5f9;
+}
+
+.rcs-chat-date {
+  text-align: center;
+  font-size: 0.68rem;
+  color: #94a3b8;
+  font-weight: 500;
+  margin: 2px 0;
+}
+
+/* RCS Rich Card */
+.rcs-rich-card {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.rcs-card-media-banner {
+  background: linear-gradient(135deg, #0a1931, #0284c7);
+  padding: 14px 10px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.rcs-card-content {
+  padding: 10px 12px;
+}
+
+.rcs-card-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.rcs-card-text {
+  font-size: 0.76rem;
+  color: #475569;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.rcs-card-time {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+/* Action Buttons inside RCS card */
+.rcs-actions-list {
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+}
+
+.rcs-action-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #f1f5f9;
+  padding: 8px 12px;
+  text-align: center;
+  color: var(--rcs-blue);
+  font-weight: 600;
+  font-size: 0.78rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.15s ease;
+}
+
+.rcs-action-btn:last-child {
+  border-bottom: none;
+}
+
+.rcs-action-btn:hover {
+  background: #f8fafc;
+}
+
+/* Chips / Quick Replies */
+.rcs-chips-row {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 2px 0;
+}
+
+.rcs-chip {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 50px;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--rcs-blue);
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  cursor: pointer;
+}
+
+/* Phone Chat Input Bar */
+.rcs-input-bar {
+  background: #ffffff;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.rcs-input-bar input {
+  flex-grow: 1;
+  border: none;
+  background: #f1f5f9;
+  border-radius: 50px;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  outline: none;
+}
+
+.rcs-send-icon {
+  color: var(--rcs-blue);
+  font-size: 0.9rem;
+}
+
+/* ========================================================
+   RCS VS SMS COMPARISON TABLE
+   ======================================================== */
+.comparison-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.comparison-table {
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.comparison-table th {
+  padding: 1.1rem 1.4rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.comparison-table th.highlight-col {
+  background: #f0fdf4;
+  color: #166534;
+  border-top: 4px solid #16a34a;
+}
+
+.comparison-table td {
+  padding: 1rem 1.4rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.92rem;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table td.highlight-col {
+  background: #f0fdf4;
+  font-weight: 600;
+  color: #14532d;
 }
 
 /* Service Cards */
 .service-card {
   background: #ffffff;
   border: 1px solid var(--border-color);
-  border-radius: 14px;
-  padding: 2rem;
+  border-radius: 16px;
+  padding: 1.85rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
   border-color: #cbd5e1;
 }
 
 .service-icon {
-  width: 60px;
-  height: 60px;
+  width: 56px;
+  height: 56px;
   border-radius: 12px;
   background: #e0f2fe;
   color: var(--secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 1.25rem;
+}
+
+.service-icon.gold {
+  background: #fef3c7;
+  color: var(--accent-gold-dark);
+}
+
+.service-icon.green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.service-icon.indigo {
+  background: #e0e7ff;
+  color: #4f46e5;
 }
 
 /* Accordion */
 .accordion-item {
   border: 1px solid var(--border-color);
-  border-radius: 10px !important;
+  border-radius: 12px !important;
   margin-bottom: 0.85rem;
   overflow: hidden;
 }
 
 .accordion-button {
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--primary);
   background: #ffffff;
-  padding: 1.15rem 1.25rem;
+  padding: 1.1rem 1.25rem;
 }
 
 .accordion-button:not(.collapsed) {
@@ -335,8 +793,8 @@ h1, h2, h3, h4, h5, h6 {
 .cta-banner {
   background: linear-gradient(135deg, var(--primary) 0%, #002e5b 100%);
   color: #ffffff;
-  border-radius: 20px;
-  padding: 4rem 2rem;
+  border-radius: 24px;
+  padding: 3.5rem 2rem;
   position: relative;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(10, 25, 49, 0.25);
@@ -346,14 +804,14 @@ h1, h2, h3, h4, h5, h6 {
 .contact-card {
   background: #ffffff;
   border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  padding: 2.5rem;
+  padding: 2.25rem;
 }
 
 .form-label {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: #334155;
   margin-bottom: 0.35rem;
 }
@@ -361,14 +819,14 @@ h1, h2, h3, h4, h5, h6 {
 .form-control, .form-select {
   border: 1px solid #cbd5e1;
   border-radius: 8px;
-  padding: 0.75rem 1rem;
-  font-size: 0.95rem;
+  padding: 0.7rem 0.95rem;
+  font-size: 0.92rem;
   transition: all 0.2s ease;
 }
 
 .form-control:focus, .form-select:focus {
   border-color: var(--secondary);
-  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.15);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
 }
 
 /* Footer */
@@ -376,20 +834,21 @@ h1, h2, h3, h4, h5, h6 {
   background: #070d19;
   color: #94a3b8;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 4.5rem 0 2rem;
+  padding: 4rem 0 2rem;
 }
 
-.footer-brand h3 {
+.footer-brand-title {
   color: #ffffff;
   font-weight: 800;
+  font-size: 1.25rem;
   letter-spacing: 0.5px;
 }
 
 .footer-links-title {
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
 }
 
 .footer-nav {
@@ -399,13 +858,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-nav li {
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.55rem;
 }
 
 .footer-nav a {
   color: #94a3b8;
   text-decoration: none;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   transition: color 0.2s ease;
 }
 
@@ -414,21 +873,67 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-bottom {
-  margin-top: 3.5rem;
+  margin-top: 3rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   font-size: 0.85rem;
 }
 
+/* Floating Quick Connect Button */
+.floating-contact-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1040;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.float-call-btn, .float-wa-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.15rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.float-call-btn {
+  background: var(--primary);
+  border: 1.5px solid var(--accent-gold);
+}
+
+.float-wa-btn {
+  background: #25d366;
+}
+
+.float-call-btn:hover, .float-wa-btn:hover {
+  transform: scale(1.08);
+  color: #ffffff;
+}
+
 /* Responsive */
 @media (max-width: 991px) {
   .hero-title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
   .section-title {
-    font-size: 1.85rem;
+    font-size: 1.8rem;
   }
   .hero-section {
-    padding: 3.5rem 0;
+    padding: 3rem 0;
+  }
+  .rcs-simulator-wrapper {
+    padding: 2rem 1rem;
+  }
+  .hero-telemetry-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 }
