@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Afia International</title>
+  <meta name="description" content="Get in touch with Afia International. Call our Indian operations desk or send your enterprise messaging inquiry.">
+  
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-3" href="index.html">
+        <img src="assets/images/logo.jpg" alt="Afia International Logo">
+        <div>
+          <span class="brand-title">AFIA</span>
+          <span class="brand-tagline">INTERNATIONAL</span>
+        </div>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#afiaNav" aria-controls="afiaNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="afiaNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about-us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="privacy-policy.html">Privacy Policy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="terms-conditions.html">Terms &amp; Conditions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contact-us.html">Contact Us</a>
+          </li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-3">
+          <a href="tel:+917745843216" class="btn-phone">
+            <i class="fa fa-phone text-primary"></i>
+            <span>+91 77458 43216</span>
+          </a>
+          <a href="contact-us.html" class="btn btn-gold d-none d-sm-inline-block">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="hero-section text-center py-5">
+    <div class="container">
+      <h1 class="hero-title text-white">Let's Connect</h1>
+      <p class="hero-desc mx-auto text-light">
+        Reach out to Afia International. Speak directly with our communication specialists to scale your global reach.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row g-5">
+        <!-- Contact Info Cards -->
+        <div class="col-lg-4">
+          <div class="p-4 rounded-4 bg-light border mb-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="feature-icon-wrap mb-0">
+                <i class="fa fa-phone text-primary"></i>
+              </div>
+              <div>
+                <h6 class="text-muted text-uppercase mb-0 small">Direct Helpline</h6>
+                <a href="tel:+917745843216" class="fw-bold fs-5 text-dark text-decoration-none">+91 77458 43216</a>
+              </div>
+            </div>
+            <p class="small text-muted mb-0">
+              Immediate connection to our enterprise routing desk for inquiries and route setup.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-4 bg-light border mb-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="feature-icon-wrap mb-0">
+                <i class="fa fa-clock text-primary"></i>
+              </div>
+              <div>
+                <h6 class="text-muted text-uppercase mb-0 small">Working Hours</h6>
+                <span class="fw-bold fs-6 text-dark">24 Hours / 7 Days a Week</span>
+              </div>
+            </div>
+            <p class="small text-muted mb-0">
+              Our NOC and technical operations run around the clock to ensure seamless messaging delivery.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-4 bg-light border">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="feature-icon-wrap mb-0">
+                <i class="fa fa-map-location-dot text-primary"></i>
+              </div>
+              <div>
+                <h6 class="text-muted text-uppercase mb-0 small">Headquarters</h6>
+                <span class="fw-bold fs-6 text-dark">India</span>
+              </div>
+            </div>
+            <p class="small text-muted mb-0">
+              Serving domestic enterprises and international carrier interconnections worldwide.
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="col-lg-8">
+          <div class="contact-card">
+            <h3 class="fw-bold mb-2">Send Us an Inquiry</h3>
+            <p class="text-muted mb-4">Fill in your requirements below and our representative will reach out to you directly.</p>
+
+            <div id="formSuccessAlert" class="alert alert-success d-none mb-4" role="alert">
+              <i class="fa fa-check-circle me-2"></i>
+              <strong>Thank you!</strong> Your message has been received. Our team will contact you shortly on your provided mobile number.
+            </div>
+
+            <form id="afiaContactForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Your Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" name="name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Phone Number <span class="text-danger">*</span></label>
+                  <input type="tel" class="form-control" name="phone" required placeholder="+91 98765 43210">
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Company Name</label>
+                  <input type="text" class="form-control" name="company" placeholder="Enter company name">
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Subject <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" name="subject" required placeholder="E.g., Enterprise SMS / OTP / Route Query">
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label">Your Message / Requirements <span class="text-danger">*</span></label>
+                  <textarea class="form-control" name="description" rows="4" required placeholder="Briefly specify your messaging volume, preferred routes, or questions..."></textarea>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="dndConsent" required>
+                    <label class="form-check-label small text-muted" for="dndConsent">
+                      I hereby authorize <strong>Afia International</strong> and its representatives to contact me via Call, SMS, RCS, or WhatsApp regarding their products, services, and commercial proposals. I agree that this consent overrides my DND/NDNC registration.
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-12 text-end mt-4">
+                  <button type="submit" class="btn btn-gold btn-lg px-5">Submit Inquiry</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-main">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img src="assets/images/logo.jpg" alt="Afia International Logo" style="height: 48px; border-radius: 6px;">
+            <div>
+              <h4 class="text-white mb-0 fw-bold">AFIA</h4>
+              <small class="text-warning text-uppercase" style="letter-spacing: 1.5px; font-size: 0.7rem;">INTERNATIONAL</small>
+            </div>
+          </div>
+          <p class="small text-muted">
+            Global Reach. Trusted Partnerships. Powerful enterprise messaging solutions and international routing designed to help your business scale globally.
+          </p>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h5 class="footer-links-title">Quick Links</h5>
+          <ul class="footer-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-links-title">Our Solutions</h5>
+          <ul class="footer-nav">
+            <li><a href="index.html">Enterprise SMS Gateways</a></li>
+            <li><a href="index.html">High-Volume OTP Delivery</a></li>
+            <li><a href="index.html">International Carrier Routes</a></li>
+            <li><a href="index.html">Telecom Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-links-title">Direct Helpline</h5>
+          <p class="small text-muted mb-2">Speak directly with our representatives:</p>
+          <a href="tel:+917745843216" class="btn btn-outline-light btn-sm mb-3">
+            <i class="fa fa-phone me-2 text-warning"></i> +91 77458 43216
+          </a>
+          <p class="small text-muted mb-0"><i class="fa fa-clock me-2"></i> 24/7 Client Support</p>
+          <p class="small text-muted"><i class="fa fa-map-marker-alt me-2"></i> India Headquarters</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
+        <div>
+          Copyright &copy; 2026 <strong>Afia International</strong>. All Rights Reserved.
+        </div>
+        <div class="text-muted">
+          Global Reach. Trusted Partnerships.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
