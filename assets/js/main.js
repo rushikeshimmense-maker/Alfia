@@ -1,5 +1,5 @@
 /**
- * Afia International - Main JS
+ * OneReachAll - Main JS
  * Features: Mobile Navbar, Interactive RCS Simulator, 1-Tap OTP Copy, Form Handler
  */
 
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const rcsData = {
     retail: {
       title: "Festive Privilege: Flat 40% OFF",
-      text: "Hello Rajesh! Your exclusive festival privilege code is <strong>AFIA40</strong>. Valid on all electronics & fashion through Sunday. Free express shipping on orders above ₹999.",
-      bannerText: "AFIA FESTIVE SALE • 40% OFF",
-      bannerSub: "Use Code: AFIA40",
+      text: "Hello Rajesh! Your exclusive festival privilege code is <strong>REACH40</strong>. Valid on all electronics & fashion through Sunday. Free express shipping on orders above ₹999.",
+      bannerText: "ONEREACHALL FESTIVE SALE • 40% OFF",
+      bannerSub: "Use Code: REACH40",
       actions: [
         { icon: "fa-shopping-bag", text: "🛍️ Shop Collection Now", alert: "Redirecting to exclusive festival catalog..." },
         { icon: "fa-location-dot", text: "📍 Locate Nearest Store", alert: "Locating 12 authorized stores near your GPS..." },
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
       chips: ["Explore Menswear", "Explore Electronics", "Store Timings"]
     },
     banking: {
-      title: "Afia Secure 2FA Authentication",
+      title: "OneReachAll Secure 2FA Authentication",
       text: "Security Alert: One-Time Password for transaction INR 14,850 at Merchant Gateway is: <strong class='text-primary fs-6'>894-312</strong>. Valid for 3 mins. Do not share your OTP with anyone.",
       bannerText: "VERIFIED BANKING OTP ALERT",
       bannerSub: "High-Priority Transaction Verification",
@@ -59,9 +59,9 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     logistics: {
       title: "Out for Express Delivery",
-      text: "Your shipment #AF-99214 is out for delivery today with dispatch driver Amit. Estimated arrival: <strong>16:45 - 18:15 IST</strong>. OTP required at delivery: 4218.",
+      text: "Your shipment #ORA-99214 is out for delivery today with dispatch driver Amit. Estimated arrival: <strong>16:45 - 18:15 IST</strong>. OTP required at delivery: 4218.",
       bannerText: "EXPRESS COURIER EN ROUTE",
-      bannerSub: "Tracking ID: #AF-99214 • Delivery Today",
+      bannerSub: "Tracking ID: #ORA-99214 • Delivery Today",
       actions: [
         { icon: "fa-truck-fast", text: "🚚 Live Driver GPS Tracking", alert: "Courier is 1.8 km away (Est. 18 mins)..." },
         { icon: "fa-calendar-days", text: "🔄 Reschedule Delivery Slot", alert: "Select tomorrow 10am-2pm or 2pm-6pm..." },
