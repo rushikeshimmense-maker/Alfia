@@ -4,6 +4,12 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
+  // Clean URLs: Remove .html extension from browser address bar
+  if (window.location.pathname.endsWith('.html')) {
+    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+    window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+  }
+
   // Mobile navbar auto close on link click
   const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
   const navCollapse = document.querySelector('.navbar-collapse');
