@@ -973,7 +973,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #cbd5e1;
   font-size: 0.88rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  line-height: 1.45;
+}
+
+.footer-info-item i {
+  margin-top: 3px;
+  flex-shrink: 0;
 }
 
 .footer-bottom {
