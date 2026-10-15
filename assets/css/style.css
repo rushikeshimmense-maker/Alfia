@@ -25,6 +25,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--text-main);
@@ -672,6 +676,22 @@ h1, h2, h3, h4, h5, h6 {
 .rcs-send-icon {
   color: var(--rcs-blue);
   font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.rcs-send-icon:hover {
+  transform: scale(1.15);
+  color: var(--primary);
+}
+
+.rcs-input-bar i.fa-plus {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.rcs-input-bar i.fa-plus:hover {
+  color: var(--primary);
 }
 
 /* ========================================================

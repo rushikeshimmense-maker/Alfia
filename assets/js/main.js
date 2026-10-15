@@ -187,6 +187,57 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 3000);
   }
 
+  // Phone Simulator Interactive Buttons
+  const rcsBackBtn = document.getElementById('rcsBackBtn');
+  if (rcsBackBtn) {
+    rcsBackBtn.addEventListener('click', function () {
+      showToast('Simulated: Returned to RCS Inbox view');
+    });
+  }
+
+  const rcsMenuBtn = document.getElementById('rcsMenuBtn');
+  if (rcsMenuBtn) {
+    rcsMenuBtn.addEventListener('click', function () {
+      showToast('OneReachAll: Verified Brand • Carrier Gateway Active • 24/7 Desk');
+    });
+  }
+
+  const rcsAttachBtn = document.getElementById('rcsAttachBtn');
+  if (rcsAttachBtn) {
+    rcsAttachBtn.addEventListener('click', function () {
+      showToast('Simulated: Rich card, carousel, or document attachment dialog');
+    });
+  }
+
+  const rcsSendBtn = document.getElementById('rcsSendBtn');
+  const rcsInputText = document.getElementById('rcsInputText');
+
+  function handleRcsSend() {
+    if (!rcsInputText) return;
+    const val = rcsInputText.value.trim();
+    if (!val) {
+      showToast('Type a message or tap any action button above to test RCS!');
+      return;
+    }
+    showToast(`Sent: "${val}" ➔ OneReachAll RCS Automated Gateway`);
+    rcsInputText.value = '';
+    setTimeout(function () {
+      showToast('OneReachAll Bot: Received! Call our Indian desk at +91 77458 43216');
+    }, 1200);
+  }
+
+  if (rcsSendBtn) {
+    rcsSendBtn.addEventListener('click', handleRcsSend);
+  }
+  if (rcsInputText) {
+    rcsInputText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleRcsSend();
+      }
+    });
+  }
+
   // ========================================================
   // CONTACT FORM SUBMISSION HANDLER
   // ========================================================
@@ -200,12 +251,33 @@ document.addEventListener('DOMContentLoaded', function () {
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i> Connecting to Indian Operations Desk...';
 
+      const nameVal = contactForm.querySelector('[name="name"]')?.value || 'Client';
+      const serviceVal = contactForm.querySelector('[name="service"]')?.value || 'Telecom';
+
       setTimeout(function () {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
 
         const alertBox = document.getElementById('formSuccessAlert');
         if (alertBox) {
+          const waUrl = `https://wa.me/917745843216?text=${encodeURIComponent('Hello OneReachAll, I just submitted an inquiry for ' + serviceVal + ' (Name: ' + nameVal + '). Please share details.')}`;
+          alertBox.innerHTML = `
+            <div class="d-flex align-items-start gap-3">
+              <i class="fa fa-circle-check text-success fs-3 flex-shrink-0 mt-1"></i>
+              <div>
+                <h5 class="alert-heading fw-bold mb-1">Inquiry Received Successfully!</h5>
+                <p class="mb-2 small text-muted">Thank you, <strong>${nameVal}</strong>. Our Indian telecom operations desk has logged your request and will call your phone number shortly.</p>
+                <div class="d-flex flex-wrap gap-2 mt-2">
+                  <a href="${waUrl}" target="_blank" class="btn btn-success btn-sm">
+                    <i class="fa-brands fa-whatsapp me-1"></i> Instant WhatsApp Chat
+                  </a>
+                  <a href="tel:+917745843216" class="btn btn-outline-dark btn-sm">
+                    <i class="fa fa-phone me-1"></i> Call Desk (+91 77458 43216)
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
           alertBox.classList.remove('d-none');
           alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }

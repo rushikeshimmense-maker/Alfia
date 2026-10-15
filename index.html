@@ -205,7 +205,7 @@
 
                 <!-- RCS App Header -->
                 <div class="rcs-app-header">
-                  <a href="#" class="text-dark me-1"><i class="fa fa-arrow-left"></i></a>
+                  <button type="button" id="rcsBackBtn" class="btn p-0 border-0 bg-transparent text-dark me-1" title="Back to Inbox"><i class="fa fa-arrow-left"></i></button>
                   <img src="assets/images/logo.png" alt="OneReachAll Avatar" class="rcs-app-avatar">
                   <div class="flex-grow-1">
                     <div class="rcs-brand-name">
@@ -213,7 +213,7 @@
                     </div>
                     <span class="rcs-brand-status">Official Verified Business</span>
                   </div>
-                  <i class="fa fa-ellipsis-vertical text-muted"></i>
+                  <button type="button" id="rcsMenuBtn" class="btn p-0 border-0 bg-transparent text-muted" title="Business Info"><i class="fa fa-ellipsis-vertical"></i></button>
                 </div>
 
                 <!-- Chat Body with Rich Card -->
@@ -248,9 +248,11 @@
 
                 <!-- Chat Input Bar -->
                 <div class="rcs-input-bar">
-                  <i class="fa fa-plus text-muted"></i>
-                  <input type="text" placeholder="RCS chat with OneReachAll..." readonly>
-                  <i class="fa fa-paper-plane rcs-send-icon"></i>
+                  <i class="fa fa-plus text-muted" id="rcsAttachBtn" role="button" title="Add Media"></i>
+                  <input type="text" id="rcsInputText" placeholder="Type a message to test RCS...">
+                  <button type="button" id="rcsSendBtn" class="btn p-0 border-0 bg-transparent" title="Send RCS message">
+                    <i class="fa fa-paper-plane rcs-send-icon"></i>
+                  </button>
                 </div>
               </div>
             </div>
